@@ -1,7 +1,41 @@
 .wrapper {
-  /* max-width: 60rem; */
+  max-width: 60rem;
   margin: 0 auto;
+  padding: 0 0.5rem;
 }
+
+.wrapper > header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+}
+
+.tasks, .completed {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.tasks span, .completed span {
+  padding: 0.125rem 0.5rem;
+  border-radius: 10px;
+  background: var(--gray-400);
+  color: var(--gray-200);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.tasks h4 {
+  color: var(--blue-300);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.completed h4 {
+  color: var(--purple-300);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
 
 @media (max-width: 768px) {
   html {

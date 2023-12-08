@@ -1,4 +1,6 @@
 :root {
+  --black:#000000;
+
   --gray-700: #0D0D0D;
   --gray-600: #1A1A1A;
   --gray-500: #262626;
@@ -22,6 +24,7 @@
 
 :focus {
   outline: none;
+  filter: drop-shadow(1px 1px 6px var(--black));
 }
 
 body {
