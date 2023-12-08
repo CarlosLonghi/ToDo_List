@@ -1,0 +1,39 @@
+.task {
+  display: flex;
+  padding: 1rem;
+  gap: 0.75rem;
+  border-radius: 8px;
+  background: var(--gray-400);
+}
+
+.text, .completedText {
+  flex: 1;
+  font-size: 0.875rem;
+}
+.text {
+  color: var(--gray-100);
+}
+.completedText {
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
+
+.task button {
+  background: transparent;
+  height: fit-content;
+}
+
+.checkButton svg {
+  fill: var(--purple-500);
+  transition: fill 0.1s;
+}
+.checkButton:hover svg {
+  fill: var(--purple-300);
+}
+
+.trashButton svg {
+  fill: var(--gray-300);
+}
+.trashButton:hover svg {
+  fill: var(--red-300);
+}

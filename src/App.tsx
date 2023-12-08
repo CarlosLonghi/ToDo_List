@@ -1,6 +1,7 @@
 import styles from './App.module.css'
 import { Header } from './components/Header'
 import { Input } from './components/Input'
+import { Task } from './components/Task'
 import './global.css'
 
 export function App() {
@@ -20,6 +21,8 @@ export function App() {
             <span>1 de 5</span>
           </div>
         </header>
+
+        <Task/>
       </div>
     </>
   )
