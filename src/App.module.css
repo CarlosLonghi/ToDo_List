@@ -1,0 +1,12 @@
+.wrapper {
+  max-width: 60rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  html {
+    /* Cálculo para converter 14px em %: (14 * 100/16)= 87.5 */
+    font-size: 87.5%;
+  }
+}
