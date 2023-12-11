@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './App.module.css'
 import { Header } from './components/Header'
 import { Input } from './components/Input'
@@ -34,6 +34,26 @@ export function App() {
     })
     setTasks(tasksWithoutDeletedOne)
   }
+
+  useEffect(() => {
+    const storedTasks = localStorage.getItem('tasks')
+    if (storedTasks) {
+      setTasks(JSON.parse(storedTasks))
+    }
+  }, [])
+
+  // Persiste os dados no LocalStorage ao recarregar ou sair da página
+  useEffect(() => {
+    window.addEventListener('beforeunload', () => {
+      localStorage.setItem('tasks', JSON.stringify(tasks))
+    })
+
+    return () => {
+      window.removeEventListener('beforeunload', () => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      })
+    }
+  }, [tasks])
 
   return (
     <>
