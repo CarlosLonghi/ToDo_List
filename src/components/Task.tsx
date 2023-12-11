@@ -2,17 +2,24 @@ import { useState } from 'react';
 import styles from './Task.module.css';
 import { Circle, CheckCircle, Trash } from '@phosphor-icons/react';
 
-export function Task() {
-  const [isHovering, setIsHovering] = useState(false);
-  const [isCompleted, setIsCompleted] = useState(false);
+interface TaskProps {
+  text: string;
+  isCompleted: boolean;
+  onToggleCompletion: () => void;
+}
+
+export function Task({ text, isCompleted, onToggleCompletion }: TaskProps) {
+  const [isHovering, setIsHovering] = useState(false)
+  const [taskCompleted, setTaskCompleted] = useState(isCompleted)
 
   function handleToggleCompletion() {
-    setIsCompleted(!isCompleted);
+    onToggleCompletion()
+    setTaskCompleted((prevCompleted) => !prevCompleted)
   } 
 
   const renderCircleIcon = () => {
     switch (true) {
-      case isCompleted:
+      case taskCompleted:
         return <CheckCircle size={25} weight='fill' />;
       case isHovering:
         return <Circle size={25} weight='duotone' />;
@@ -33,8 +40,8 @@ export function Task() {
         {renderCircleIcon()}
       </button>
 
-      <p className={isCompleted ? styles.completedText : styles.text}>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit... Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum beatae commodi tempore ad ullam voluptate laborum dicta temporibus obcaecati dolores!
+      <p className={taskCompleted ? styles.completedText : styles.text}>
+        {text}
       </p>
 
       <button title='Remover tarefa' className={styles.trashButton}>
