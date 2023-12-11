@@ -6,16 +6,12 @@ interface TaskProps {
   text: string;
   isCompleted: boolean;
   onToggleCompletion: () => void;
+  onDeleteTask: () => void;
 }
 
-export function Task({ text, isCompleted, onToggleCompletion }: TaskProps) {
+export function Task({ text, isCompleted, onToggleCompletion, onDeleteTask }: TaskProps) {
   const [isHovering, setIsHovering] = useState(false)
   const [taskCompleted, setTaskCompleted] = useState(isCompleted)
-
-  function handleToggleCompletion() {
-    onToggleCompletion()
-    setTaskCompleted((prevCompleted) => !prevCompleted)
-  } 
 
   const renderCircleIcon = () => {
     switch (true) {
@@ -27,6 +23,15 @@ export function Task({ text, isCompleted, onToggleCompletion }: TaskProps) {
         return <Circle size={25} />;
     }
   };
+
+  function handleToggleCompletion() {
+    onToggleCompletion()
+    setTaskCompleted((prevCompleted) => !prevCompleted)
+  } 
+  
+  function handleDelete() {
+    onDeleteTask()
+  }
 
   return (
     <article className={styles.task}>
@@ -44,7 +49,11 @@ export function Task({ text, isCompleted, onToggleCompletion }: TaskProps) {
         {text}
       </p>
 
-      <button title='Remover tarefa' className={styles.trashButton}>
+      <button 
+        title='Remover tarefa' 
+        className={styles.trashButton}
+        onClick={handleDelete}
+      >
         <Trash size={25} />
       </button>
     </article>

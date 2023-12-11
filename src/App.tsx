@@ -28,6 +28,13 @@ export function App() {
     );
   };
 
+  function deleteTask(taskToDelete: object) {
+    const tasksWithoutDeletedOne = tasks.filter(task => {
+      return task !== taskToDelete
+    })
+    setTasks(tasksWithoutDeletedOne)
+  }
+
   return (
     <>
       <Header/>
@@ -49,10 +56,11 @@ export function App() {
         {
           tasks.map((task) => (
             <Task
-              key={task.text}
+              key={task.text} // O correto seria usar "task.id". Porém como o projeto ainda não está criando e salvando os dados em um tabela, essa é uma forma de exemplificar.
               text={task.text}
               isCompleted={task.isCompleted}
               onToggleCompletion={() => handleTaskToggleCompletion(task.text, task.isCompleted)}
+              onDeleteTask={() => deleteTask(task)}
             />
           ))
         }
