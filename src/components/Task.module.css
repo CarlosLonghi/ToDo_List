@@ -5,6 +5,9 @@
   border-radius: 8px;
   background: var(--gray-400);
 }
+.task + .task {
+  margin-top: 0.875rem;
+}
 
 .text, .completedText {
   flex: 1;

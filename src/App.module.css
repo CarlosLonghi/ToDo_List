@@ -24,7 +24,6 @@
   font-size: 0.75rem;
   font-weight: 700;
 }
-
 .tasks h4 {
   color: var(--blue-300);
   font-size: 0.875rem;
@@ -37,6 +36,27 @@
   font-weight: 700;
 }
 
+.empty {
+  display: block;
+  background-color: var(--gray-500);
+  text-align: center;
+  padding: 3.5rem 0;
+  border-radius: 8px;
+}
+.empty svg, .empty h4 {
+  color: var(--gray-300)
+}
+.empty svg {
+  margin-bottom: 1rem;
+  width: 3.8rem;
+  height: 3.8rem;
+}
+.empty h4 {
+  font-size: 1.25rem;
+}
+.empty h4:nth-child(3) {
+  font-weight: 400;
+}
 
 @media (max-width: 768px) {
   html {

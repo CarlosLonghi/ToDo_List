@@ -4,6 +4,8 @@ import { Input } from './components/Input'
 import { Task } from './components/Task'
 import './global.css'
 
+import { ClipboardText } from '@phosphor-icons/react'
+
 export function App() {
 
   return (
@@ -22,7 +24,13 @@ export function App() {
           </div>
         </header>
 
-        <Task/>
+        {/* <Task/> */}
+
+        <div className={styles.empty}>
+          <ClipboardText weight='light' />
+          <h4>Você ainda não tem tarefas cadastradas</h4>
+          <h4>Crie tarefas e organize seus itens a fazer</h4>
+        </div>
       </div>
     </>
   )
